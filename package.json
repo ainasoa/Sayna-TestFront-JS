@@ -1,0 +1,21 @@
+{
+  "name": "sayna-testfront-js",
+  "version": "1.0.0",
+  "description": "test du 14 au 16 Janvier 2022",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app"
+  },
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "express-validator": "^3.2.0",
+    "mongoose": "^4.10.4",
+    "pug": "^2.0.0-rc.2"
+  },
+  "author": "AINASOA MEDERIQUE Michaël Ricardo",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}

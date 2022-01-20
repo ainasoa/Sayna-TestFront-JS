@@ -1,0 +1,36 @@
+extends ../layout
+
+block content
+  h1.my-4 #{title}
+  table
+    tbody 
+      tr 
+        td.pe-2(align='right') 
+          h5 Nom et Prénom :
+        td 
+          h5 #{employee.firstName} #{employee.lastName}
+      tr
+        td.pe-2(align='right') 
+          h5 E-mail :
+        td
+          p.mb-2 
+           i 
+            a(href=`tel:${employee.email}`)= employee.email
+      tr
+        td.pe-2(align='right') 
+          h5 Tél :
+        td
+          p.mb-2 
+           i 
+            a(href=`tel:${employee.tel}`)= employee.tel
+      tr
+        td.pe-2(align='right') 
+          h5 Poste :
+        td
+          h5 #{employee.responsibility}
+  hr
+  form(action="/employee/delete/"+employee._id, method="post") 
+    .btn-group
+      a.btn.btn-primary(href='/edit/'+employee._id) Modifier
+      //- form(action="", method="POST") 
+      button.btn.btn-danger(type='submit') Supprimer

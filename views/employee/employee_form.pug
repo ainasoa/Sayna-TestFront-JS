@@ -1,0 +1,27 @@
+extends ../layout
+
+block content
+  h1.my-3 #{title}
+  if errors
+    each error in errors
+          .alert.alert-danger.py-1= error.msg
+  form(method= 'POST', action= employee ? '/employee/edit/' + employee._id : '/employee/new')
+    if employee
+      input.form-control(name='_id', type='hidden', value= `${employee._id}`)
+    .form-group
+      label Nom:
+      input.form-control(name='firstName', type='text', value= employee ? employee.firstName : "", placeholder="Nom")
+    .form-group.mt-2
+      label Prénom:
+      input.form-control(name='lastName', type='text',  value= employee ? employee.lastName : "", placeholder="Prénom")
+    .form-group.mt-2
+      label E-mail:
+      input.form-control(name='email', type='email',  value= employee ? employee.email : "", placeholder="Ex : johndoe@gmail.com")
+    .form-group.mt-2
+      label Tél:
+      input.form-control(name='tel', type='tel',  value= employee ? `${employee.tel}` : "", placeholder="Tél")
+    .form-group.mt-2
+      label Poste:
+      input.form-control(name='responsibility', type='text',  value= employee ? employee.responsibility : "", placeholder="Poste")
+    br
+    input.btn.btn-lg.btn-primary(type='submit', value= employee ? 'Modifier' : 'Enregistrer')
